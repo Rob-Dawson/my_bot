@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+     <xacro:macro name="color_macro" params="color_name">
+    <xacro:property name="color" value="0 0 0" />
+    <xacro:if value="$(arg color_name) == 'red'">
+      <xacro:property name="color" value="1 0 0" />
+    </xacro:if>
+    <xacro:if value="$(arg color_name) == 'green'">
+      <xacro:property name="color" value="0 1 0" />
+    </xacro:if>
+    <xacro:if value="$(arg color_name) == 'blue'">
+      <xacro:property name="color" value="0 0 1" />
+    </xacro:if>
+    <!-- Add more color options as needed -->
+    <color rgba="$(arg color)" />
+  </xacro:macro>
+
+</robot>

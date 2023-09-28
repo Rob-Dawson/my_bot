@@ -92,7 +92,7 @@
         <mu>5.0</mu>
 
     </link>
-<!--  -->
+<!-- ad -->
     <gazebo reference="left_wheel">
         <visual>
             <material> 

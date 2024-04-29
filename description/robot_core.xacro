@@ -54,8 +54,16 @@
     </link>
     
     <gazebo reference="chassis">
-        <material>Gazebo/White</material>
-    </gazebo>
+        <visual>
+            <material> 
+                <!-- Values between 0.0 and 1.0 -->
+                <ambient>1.0 1.0 1.0 1.0</ambient>
+                <diffuse>1.0 1.0 1.0 1.0</diffuse>
+                <specular>0.0 0.0 0.0 1.0</specular>
+                <emissive>0.0 0.0 0.0 1.0</emissive>
+            </material>
+        </visual>
+    </gazebo> 
 
     <!-- LEFT WHEEL LINK -->
 
@@ -84,10 +92,18 @@
         <mu>5.0</mu>
 
     </link>
-
+<!-- ad -->
     <gazebo reference="left_wheel">
-        <material>Gazebo/Blue</material>
-    </gazebo>
+        <visual>
+            <material> 
+                <!-- Values between 0.0 and 1.0 -->
+                <ambient>0.0 0.0 1.0 1.0</ambient>
+                <diffuse>0.0 0.0 1.0 1.0</diffuse>
+                <specular>0.0 0.0 0.0 1.0</specular>
+                <emissive>0.0 0.0 0.0 1.0</emissive>
+            </material>
+        </visual>
+    </gazebo> 
 
     <!-- RIGHT WHEEL LINK -->
 
@@ -115,10 +131,17 @@
 
     </link>
 
-    <ignition reference="right_wheel">
-        <material> Gazebo/Red</material>
-    </ignition>
-
+    <gazebo reference="right_wheel">
+        <visual>
+            <material> 
+                <!-- Values between 0.0 and 1.0 -->
+                <ambient>0.0 0.0 1.0 1.0</ambient>
+                <diffuse>0.0 0.0 1.0 1.0</diffuse>
+                <specular>0.0 0.0 0.0 1.0</specular>
+                <emissive>0.0 0.0 0.0 1.0</emissive>
+            </material>
+        </visual>
+    </gazebo> 
     <!-- CASTER WHEEL LINK -->
 
     <joint name="caster_wheel_joint" type="continuous">
@@ -133,6 +156,8 @@
             <geometry>
                 <sphere radius="0.05"/>
             </geometry>
+            <material name="black"/>
+
         </visual>
         <collision>
             <geometry>
@@ -146,8 +171,16 @@
     
 
     <gazebo reference="caster_wheel">
-        <material> Gazebo/Black</material>
-
+        <visual>
+            <material> 
+                <!-- Values between 0.0 and 1.0 -->
+                <ambient>0.0 0.0 0.0 1.0</ambient>
+                <diffuse>0.0 0.0 0.0 1.0</diffuse>
+                <specular>0.0 0.0 0.0 1.0</specular>
+                <emissive>0.0 0.0 0.0 1.0</emissive>
+            </material>
+        </visual>
+        
         <collision>
             <surface>
                 <friction>

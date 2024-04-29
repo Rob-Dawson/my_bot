@@ -4,6 +4,7 @@ from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+from launch.actions import DeclareLaunchArgument
 
 def generate_launch_description():
 
@@ -13,6 +14,11 @@ def generate_launch_description():
     gazebo_path = FindPackageShare('gazebo_ros').find('gazebo_ros')
     world_path = os.path.join(pkg_path, 'worlds', 'empty.world')
     ## Launch rsp.launch
+    xacro_path = os.path.join(pkg_path, "description", "robot.urdf.xacro")
+    # world_path = os.path.join(pkg_path, 'worlds', 'NuBot_World', 
+    #                           'terrain-lab_room', 'model.sdf')
+    world_path = os.path.join(pkg_path, 'worlds', 'new.world') 
+
 
     rsp = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
@@ -29,15 +35,16 @@ def generate_launch_description():
             'verbose':"true"}.items()
     )
 
+
     spawn_entity = Node(
         package='gazebo_ros',
         executable='spawn_entity.py',
-        arguments=['-topic', 'robot_description', '-entity', 'my_bot'],
+        arguments=['-topic', 
+                   'robot_description', '-entity', 'my_bot'],
         output='screen'
     )
 
     ld = LaunchDescription()
-
     ld.add_action(rsp)
     ld.add_action(gazebo)
     ld.add_action(spawn_entity)

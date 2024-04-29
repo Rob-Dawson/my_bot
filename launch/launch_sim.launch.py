@@ -15,9 +15,8 @@ def generate_launch_description():
     world_path = os.path.join(pkg_path, 'worlds', 'empty.world')
     ## Launch rsp.launch
     xacro_path = os.path.join(pkg_path, "description", "robot.urdf.xacro")
-    # world_path = os.path.join(pkg_path, 'worlds', 'NuBot_World', 
-    #                           'terrain-lab_room', 'model.sdf')
-    world_path = os.path.join(pkg_path, 'worlds', 'new.world') 
+
+    world_path = os.path.join(pkg_path, 'worlds', 'empty.world') 
 
 
     rsp = IncludeLaunchDescription(

@@ -11,6 +11,7 @@ def generate_launch_description():
     
     pkg_path = FindPackageShare('my_bot').find('my_bot')
     gazebo_path = FindPackageShare('gazebo_ros').find('gazebo_ros')
+    world_path = os.path.join(pkg_path, 'worlds', 'empty.world')
     ## Launch rsp.launch
 
     rsp = IncludeLaunchDescription(
@@ -22,7 +23,10 @@ def generate_launch_description():
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
             gazebo_path, 'launch', 'gazebo.launch.py'
-        )])
+        )]),
+        launch_arguments={
+            'world':world_path, 
+            'verbose':"true"}.items()
     )
 
     spawn_entity = Node(
